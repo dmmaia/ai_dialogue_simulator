@@ -1,10 +1,9 @@
-from gtts import gTTS
+import text_to_speech
+import ai_text_generator
+import speech_to_text
 
-import os
-
-text = "Simple test response"
-lang = 'en'
-
-audio = gTTS(text=text, lang=lang, tld="com")
-audio.save("midia/test.mp3")
-os.system("paplay midia/test.mp3")
+text = speech_to_text.generateText()
+print(text)
+response = ai_text_generator.generateResponse(text)
+print(response)
+text_to_speech.generateSpeech(response)
