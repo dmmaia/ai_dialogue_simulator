@@ -3,10 +3,13 @@ import speech_recognition as sr
 speech_eng = sr.Recognizer()
 
 def generateText():
-    with sr.Microphone(device_index=13) as source:
+    #microphone_names = sr.Microphone.list_microphone_names()
+    #for i, name in enumerate(microphone_names):
+        #print(f"Microphone {i}: {name}")
+    with sr.Microphone(device_index=14) as source:
         print("Say something!")
-        speech_eng.adjust_for_ambient_noise(source)
-        speech_eng.energy_threshold=3000
+        speech_eng.energy_threshold = 50
+        speech_eng.dynamic_energy_threshold = False
         audio = speech_eng.listen(source)
 
     try:
