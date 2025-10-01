@@ -3,7 +3,7 @@ from google.genai import types
 
 client = genai.Client()
 
-def generateResponse(content):
+def generateResponse(content) -> str:
     response = client.models.generate_content(
         model="gemini-2.5-flash",
         contents=content,

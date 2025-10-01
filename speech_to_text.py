@@ -6,7 +6,7 @@ def generateText():
     with sr.Microphone(device_index=13) as source:
         print("Say something!")
         speech_eng.adjust_for_ambient_noise(source)
-        speech_eng.energy_threshold=1000
+        speech_eng.energy_threshold=3000
         audio = speech_eng.listen(source)
 
     try:

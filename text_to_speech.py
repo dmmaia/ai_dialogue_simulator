@@ -1,10 +1,7 @@
 from gtts import gTTS
 
-import os
-
 lang = 'en'
 
-def generateSpeech(text):
+def generateSpeech(text,name):
     audio = gTTS(text=text, lang=lang, tld="com")
-    audio.save("midia/speech.mp3")
-    os.system("paplay midia/speech.mp3")
+    audio.save("midia/"+name+".mp3")
